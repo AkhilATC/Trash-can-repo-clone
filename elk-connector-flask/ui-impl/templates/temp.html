@@ -1,0 +1,56 @@
+
+<header>
+<h3 align="center" style="color:blue;"> Patient report 👨‍⚕️</h3>
+<p align="center">System generated report</p>
+<center> <img src="doc-logo.jpeg" width="50" height="50"> </center>
+</header>
+<div style="background-url:url('/static/doc1.jpg')">
+
+<div style="width: 100%;background-color: #DCDCDC;color:black;padding: 14px 20px;margin: 8px 0;
+            border: none; border-radius: 4px;cursor: pointer; display: table;">
+            
+<table style="font-family: arial, sans-serif ;border-collapse: collapse; width: 100%;">
+<tr>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> Clinic Name: </td>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> {{clinic-name}} </td>
+
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> Clinic logo: </td>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> {{clinic-logo}} </td>
+</tr>
+
+<tr>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> Physician Name: </td>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> {{physician_name}} </td>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> Physician address: </td>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> {{physician_address}} </td>
+</tr>
+
+<tr>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> Patient Name: </td>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> {{patient_name}} </td>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> Patient's DOB: </td>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> {{patient_dob}} </td>
+</tr>
+
+<tr>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> Patient's Contact: </td>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> {{patients_contact}} </td>
+</tr>
+
+<tr>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> chef complaint: </td>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> {{c_complaint}} </td>
+</tr>
+
+<tr>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> Consultation Note: </td>
+<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> {{note}} </td>
+</tr>
+</table>  
+    
+</div>	
+<footer>
+<p>This report is generated on {{time}}
+from {{ip}}</p>
+<p> ©️AkhilATC</p>
+</footer>		

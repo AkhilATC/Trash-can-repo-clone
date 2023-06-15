@@ -1,0 +1,45 @@
+.main-block{
+    display: flexbox;
+    flex-direction: column;
+    margin: 20px 20px 20px 20px;
+    padding: 10px;
+    text-align: center;
+    justify-items: center;
+    .img-container{
+       
+        
+        font-family: monospace;
+        size: 3em;
+        font-style: oblique;
+        color: rebeccapurple;
+        font-weight: 100px;
+        img{
+            border-radius: 50px;
+            width: 70px;
+        }
+        span{
+            color: red;
+            font-size: 1em;
+            font-style: italic;
+        }
+
+    }
+    .log-in{
+        margin: 30px;
+        padding: 30px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        .red{
+            color: red;
+            font: 1em sans-serif;
+        }
+    }
+    .sign-up-node{
+        font-size: medium;
+        font-family: 'Courier New', Courier, monospace;
+        color: blueviolet;
+    }
+}

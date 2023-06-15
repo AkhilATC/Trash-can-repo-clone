@@ -1,0 +1,33 @@
+<div class="con">
+
+      <div class="one"> 
+        <mat-form-field appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput [(ngModel)]="titleValue">
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Share your thoughts</mat-label>
+            <textarea matInput [(ngModel)]="noteValue"></textarea>
+          </mat-form-field>
+          <br>
+          <button mat-raised-button color="primary" (click)="pushNote()">Publish ✍🏻</button>
+          <p> {{msg}}</p>
+    </div>
+
+    <div *ngFor="let each of chat_info" class="one">
+      <mat-card class="example-card">
+          <mat-card-title>{{each.title}}</mat-card-title>
+          <mat-card-subtitle>{{each.wrote_by}} posts this on :⌛ {{each.created_on}}</mat-card-subtitle> 
+          <mat-card-content>
+            <p>{{ each.thought }}</p>
+          </mat-card-content>
+          <mat-card-actions align="end">
+              <button *ngIf= "each.is_self_thought" mat-button (click)="deleteNote(each._id)">🗑️</button>
+          </mat-card-actions>
+        </mat-card>
+    </div> 
+<p *ngIf="chat_info.length===0"> 🙅‍♂️ Posts are not available !!!</p> 
+ 
+</div>
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+    {% if error %}
+    <p class="flashes"><strong>🚩 Error:</strong> {{ error }}
+  {% endif %}
+    <!-- content -->
+    <h1>Patient Report Form 👨‍⚕️</h1>
+    <div class="box">
+
+
+        <form action="gen_report"   method="post">
+            <div class="flex-box">
+                <label for="clinic-name">Clinic name:</label>
+                <input type="text" id="clinic-name" name="clinic-name" placeholder="clinic name">
+                <label for="clinic-logo">clinic-logo:</label>
+                <input type="text" id="clinic-logo" name="clinic-logo"  placeholder="clinic logo">
+            </div>
+
+            <div class="flex-box">
+                 <label for="physician-name">physician-name:</label>
+              <input type="text" id="physician-name" name="physician-name" placeholder="physician-name">
+                 <label for="physician-contact">physician-contact:</label>
+              <input type="text" id="physician-contact"  name="physician-contact" placeholder="contact info">
+            </div>
+
+            <div class="flex-box">
+                <label for="p-name">Patient's FirstName:</label>
+                <input type="text" id="p-name" name="p-name" placeholder="Patient first name">
+                <label for="p-lname">Patient's LastName:</label>
+                <input type="text" id="p-lname" name="p-lname" placeholder="Patient last name">
+            </div>
+
+            <div class="flex-box">
+                <label for="p-dob">Date of Birth:</label>
+                <input type="text" id="p-dob"  name="p-dob" placeholder="DoB">
+                <label for="p-contact">Patient contact info:</label>
+                <input type="text" id="p-contact" name="p-contact" placeholder="patient address">
+            </div>
+
+
+          <div class="flex-box">
+              <label for="input-message">Chef Complaints:</label>
+            <textarea  type="text" id="input-message"  name="input-message" placeholder="Chef complaints"></textarea>
+              <br>
+              <label for="input-message-2">Consultation Note:</label>
+              <textarea  type="text" id="input-message-2"  name="input-message-2" placeholder="Message"></textarea>
+
+          </div>
+
+            <div class="flex-box-end">
+               <center> <input type="submit" value="Generate report" id="input-submit"> </center>
+            </div>
+
+
+        </form>
+
+
+    </div>
+</body>
+</html>

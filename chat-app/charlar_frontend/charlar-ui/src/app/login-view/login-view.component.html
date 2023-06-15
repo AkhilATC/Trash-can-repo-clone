@@ -1,0 +1,22 @@
+<div class="main-block">
+    <div class="img-container">
+      <img src="./assets/bing.png">
+      <p> Charlar <span> Note ur bling</span></p>
+    </div>
+  
+    <div class="log-in">
+         <label for="uname"> <b> Username </b> </label>
+        <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="userName" required>
+  
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" [(ngModel)]="passWord" required>
+          
+        <button type="submit" (click)="logIn()">Login</button>
+        <p class="red">{{ msg }}</p>
+    </div>
+  
+    <div class="sign-up-node">
+      <p> Hey 👋!  New to Charlar, click  <a routerLink="/register">here</a> for sign up</p>
+    </div>
+
+  </div>

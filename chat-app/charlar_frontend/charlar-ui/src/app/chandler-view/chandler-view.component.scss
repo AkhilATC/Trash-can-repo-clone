@@ -1,0 +1,24 @@
+.con{
+    display: flexbox;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 20px 20px 20px 20px;
+    padding: 10px;
+    text-align: center;
+    justify-content: space-between;
+    //align-items: center;
+    //max-width: 400px;
+    .one{
+
+        padding: 30px;
+        //align-items: center;
+        //margin: 50px;
+       // justify-content: center;
+        //max-width: 400px;
+        .example-card{
+            max-width: 400px;
+
+        }
+    }
+    
+}

@@ -1,0 +1,43 @@
+
+.box{
+
+    display: flex;
+    font-family: system-ui;
+    margin: 30px;
+    padding: 30px;
+    flex-direction: row;
+
+
+}
+h1{
+
+    font-family: "Gill Sans", sans-serif;
+    background-color: lightgrey;
+    color: blue;
+    text-align : center;
+}
+.flex-box{
+    padding: 30px;
+    margin: 20px;
+    justify-content: center;
+
+}
+
+form{
+
+    justify-content: center;
+}
+textarea{
+
+    border: 3px solid #8a5880;
+    min-height: 100px;
+    min-width: 400px;
+}
+.flex-box-end{
+    align-text:center;
+    align-content: center;
+    color: red;
+}
+.flashes{
+    background-color: #e6c093;
+}

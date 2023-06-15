@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+  chandler:
+    build:
+      context: "charlar_backend"
+    ports:
+      - 5900:5900
+    networks:
+      - charlar_net
+  mongodb:
+    image: mongo:5.0
+    ports:
+      - 27017:27017
+    volumes:
+      - ~/apps/mongo:/data/db
+    networks:
+      - charlar_net
+    depends_on:
+      - chandler
+networks:
+  charlar_net:
+    driver: bridge
