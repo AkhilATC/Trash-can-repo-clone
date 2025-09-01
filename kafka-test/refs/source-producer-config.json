@@ -1,0 +1,25 @@
+{
+  "name": "mongo-source-connector",
+  "config": {
+    "connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",
+    "tasks.max": "1",
+    
+    "connection.uri": "mongodb://localhost:27017",
+    
+    "database": "source_db",
+    "collection": "users",   // collection you want to capture
+    
+    "publish.full.document.only": "true", 
+    
+    "output.format.value": "json",
+    "output.format.key": "json",
+    
+    "topic.prefix": "mongo-source-",  // topic name will be mongo-source.source_db.users
+    
+    "key.projection.type": "whitelist",
+    "key.projection.list": "_id",     // use Mongo _id as Kafka key
+    
+    "copy.existing": "true"           // also capture existing records at startup
+  }
+}
+

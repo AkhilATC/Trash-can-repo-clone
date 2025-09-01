@@ -1,0 +1,16 @@
+curl -X POST http://localhost:8083/connectors \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "mongo-sink-B",
+    "config": {
+      "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+      "tasks.max": "1",
+      "topics": "mongo.ATC.A",
+      "connection.uri": "mongodb://host.docker.internal:27017",
+      "database": "ATC",
+      "collection": "B",
+      "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+      "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+      "value.converter.schemas.enable": "false"
+    }
+  }'
