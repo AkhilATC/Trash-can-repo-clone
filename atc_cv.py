@@ -70,3 +70,100 @@ content.append(Paragraph("Semantic Knowledge-based Tutoring System | Petri Net V
 # Build PDF
 doc.build(content)
 print(f"PDF '{pdf_file}' created successfully.")
+# changes 
+from reportlab.lib.pagesizes import A4
+from reportlab.lib import colors
+from reportlab.lib.styles import ParagraphStyle
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+
+# PDF file
+pdf_file = "Akhil_CV_Modern.pdf"
+doc = SimpleDocTemplate(pdf_file, pagesize=A4, rightMargin=30, leftMargin=30, topMargin=30, bottomMargin=30)
+
+# Styles
+heading_style = ParagraphStyle('Heading', fontSize=16, leading=18, spaceAfter=6, fontName='Helvetica-Bold')
+subheading_style = ParagraphStyle('SubHeading', fontSize=12, leading=14, spaceAfter=4, fontName='Helvetica-Bold', textColor=colors.darkblue)
+normal_style = ParagraphStyle('Normal', fontSize=10, leading=12)
+small_style = ParagraphStyle('Small', fontSize=9, leading=11, textColor=colors.grey)
+
+content = []
+
+# Header
+content.append(Paragraph("Akhil T Cheriyan", heading_style))
+content.append(Paragraph("Software Engineer | Kollam, Kerala", normal_style))
+contact_data = [
+    ["📞 9446987019", "📧 akhiltcheriyan002@gmail.com"],
+    ["🌐 github.com/AkhilATC", ""]
+]
+contact_table = Table(contact_data, colWidths=[250, 250])
+contact_table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'MIDDLE'), ('FONTNAME',(0,0),(-1,-1),'Helvetica')]))
+content.append(contact_table)
+content.append(Spacer(1, 12))
+
+# Professional Experience
+content.append(Paragraph("Professional Experience", subheading_style))
+
+# Experience entries (compact)
+experience_entries = [
+    ("InerG Innovations and Technologies, Kochi — Lead Engineer (2023–Present)", 
+     "Projects: FieldPulse, Almika, QuardINs",
+     [
+         "Developed and maintained microservices across three major enterprise products.",
+         "Designed RESTful APIs with Flask and FastAPI including CRUD operations and error handling.",
+         "Built Airflow DAGs and Celery-based alert/scheduler systems for real-time workflows.",
+         "Engineered dynamic rule engine using Lark (CFG parser) for QuardINs.",
+         "Integrated microservices with data pipelines for automation and observability."
+     ]),
+    ("Dexlock Technologies, Kochi — Software Engineer (2022–2023)",
+     "Project: Programmatic Ad Tech (RTB)",
+     [
+         "Backend development of a real-time bidding platform.",
+         "Developed Campaign Manager module with CRUD, filter-based search, and REST APIs."
+     ]),
+    ("Cognicor Technologies, Kochi — R&D Engineer (2018–2022)",
+     "Project: CIRA",
+     [
+         "Developed microservices for large-scale, real-time applications.",
+         "Implemented Celery-based distributed task queues for long-running tasks.",
+         "Built ontology-to-JSON KB conversion modules and OWL services using Jena and OWLAPI.",
+         "Contributed to semantic knowledge modeling and API design."
+     ]),
+    ("Mozanta Technologies, Trivandrum — Python Developer Intern (2017–2018)",
+     "Project: Interviewer Chatbot",
+     [
+         "Developed voice-interfaced chatbot with Neo4j knowledge ingestion."
+     ])
+]
+
+for title, project, bullets in experience_entries:
+    content.append(Paragraph(title, normal_style))
+    content.append(Paragraph(project, small_style))
+    for b in bullets:
+        content.append(Paragraph("• " + b, normal_style))
+    content.append(Spacer(1, 6))
+
+# Skills
+content.append(Paragraph("Skills", subheading_style))
+skills_text = ("Python, Java, Flask, FastAPI, Spring Boot, Angular (beginner), MongoDB, Redis, RabbitMQ, Docker, ELK, "
+               "OpenSearch, Airflow DAGs, Celery, Ontology (OWL, OWLAPI, Apache Jena), CFG Parsing (Lark), NLP, "
+               "Machine Learning, LLM, RAG, LangChain, LlamaIndex")
+content.append(Paragraph(skills_text, normal_style))
+content.append(Spacer(1, 12))
+
+# Education
+content.append(Paragraph("Education", subheading_style))
+edu_text = ("M.Tech, Data Science and AI — CUSAT (2023–Present)<br/>"
+            "M.Sc, Computer Science (Machine Intelligence) — IIITM-K (2016–2018)<br/>"
+            "BCA, Computer Applications — University Institute of Technology, Kollam (2013–2016)")
+content.append(Paragraph(edu_text, normal_style))
+content.append(Spacer(1, 12))
+
+# Independent Projects
+content.append(Paragraph("Independent Projects", subheading_style))
+projects_text = "Semantic Knowledge-based Tutoring System | Petri Net Viewer | Tweet2WordCloud | Tiny Online Code Editor"
+content.append(Paragraph(projects_text, normal_style))
+
+# Build PDF
+doc.build(content)
+print(f"Modern PDF CV '{pdf_file}' created successfully!")
+
