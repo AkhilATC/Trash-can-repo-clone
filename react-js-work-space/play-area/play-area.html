@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Playground</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 180px;
+            margin: 10px 0;
+            font-family: monospace;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 8px 14px;
+            margin: 5px 5px 5px 0;
+            cursor: pointer;
+        }
+
+        #output {
+            background: #f2f2f2;
+            padding: 12px;
+            min-height: 50px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript Playground</h2>
+
+    <label>Write JavaScript:</label>
+    <textarea id="jsCode">console.log("Hello JavaScript!");
+document.getElementById("output").textContent = "Code executed successfully!";</textarea>
+
+    <button onclick="encodeCode()">Encode</button>
+    <button onclick="decodeCode()">Decode</button>
+    <button onclick="runCode()">Run JavaScript</button>
+
+    <h3>Encoded JavaScript (Base64)</h3>
+    <textarea id="encodedCode" placeholder="Encoded script appears here"></textarea>
+
+    <h3>Output</h3>
+    <div id="output">Waiting for execution...</div>
+
+    <script>
+        function encodeCode() {
+            const code = document.getElementById("jsCode").value;
+            document.getElementById("encodedCode").value =
+                btoa(unescape(encodeURIComponent(code)));
+        }
+
+        function decodeCode() {
+            const encoded = document.getElementById("encodedCode").value;
+
+            try {
+                document.getElementById("jsCode").value =
+                    decodeURIComponent(escape(atob(encoded)));
+            } catch (error) {
+                document.getElementById("output").textContent =
+                    "Decode error: " + error.message;
+            }
+        }
+
+        function runCode() {
+            const code = document.getElementById("jsCode").value;
+
+            try {
+                // Test only JavaScript you trust.
+                new Function(code)();
+            } catch (error) {
+                document.getElementById("output").textContent =
+                    "Execution error: " + error.message;
+            }
+        }
+    </script>
+
+</body>
+</html>
+

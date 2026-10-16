@@ -2,3 +2,5 @@
 dsa
 .ipynb_checkpoints
 /nut-and-bolt/nab
+.venv
+
