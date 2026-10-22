@@ -63,7 +63,43 @@ The **mask** marks which positions are real (1) and which are padding (0).
 attending to `[PAD]`. Without it, the model would mix "nothing" into its
 understanding of the sentence.
 
-## 5. Shapes (get used to these)
+## 5. The whole tokenization process (recap)
+
+**Once, up front: build the vocabulary** from the training sentences.
+The special tokens go first, so their ids are always the same:
+`[PAD]=0`, `[UNK]=1`, `[CLS]=2`. The words come after them, sorted.
+
+**Then for every sentence** (`tok.encode(text, max_len=12)`):
+
+| # | step | "i love my family" |
+|---|------|--------------------|
+| 1 | Lowercase and split into words | `i, love, my, family` |
+| 2 | Each word → its id. Unknown word → `[UNK]` (1) | `81, 99, 110, 48` |
+| 3 | Put `[CLS]` (2) in **front** | `2, 81, 99, 110, 48` |
+| 4 | Make it exactly `max_len` long: cut if too long, add `[PAD]` (0) at the **end** if too short | `2, 81, 99, 110, 48, 0, 0, 0, 0, 0, 0, 0` |
+| 5 | Build the mask: 1 for real tokens (including `[CLS]`), 0 for `[PAD]` | `1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0` |
+
+**Where does each special token go?**
+
+| token | where | added by |
+|-------|-------|----------|
+| `[CLS]` | always in **front** (position 0) | step 3 |
+| `[UNK]` | **in place of** an unknown word | step 2 |
+| `[PAD]` | at the **end**, to fill up to `max_len` | step 4 |
+
+Only `[CLS]` is added in front. We need no other front tokens for a
+one-sentence classifier. BERT also adds `[SEP]` at the end to separate two
+sentences (e.g. question + answer). We don't need that.
+
+**Mask: vector or matrix?** For one sentence, the mask is a **vector** of
+length `max_len` (12). For a batch of B sentences, the masks are stacked into
+a **(B, 12) matrix**, one row per sentence. The ids work the same way.
+
+The 5 real tokens stay the same whatever `max_len` is. Only the number of
+`[PAD]`s changes. `max_len` becomes `T` in every shape from now on, so the
+attention matrix in Step 3 is `(B, 12, 12)`.
+
+## 6. Shapes (get used to these)
 
 For a batch of `B` sentences, each padded to length `T`:
 

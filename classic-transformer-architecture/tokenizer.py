@@ -31,6 +31,14 @@ class Tokenizer:
         self.unk_id = self.stoi[UNK]
         self.cls_id = self.stoi[CLS]
 
+    @classmethod
+    def from_vocab(cls, itos):
+        """Rebuild a tokenizer from a saved vocab list (step 8 loads it from the checkpoint)."""
+        tok = cls([])
+        tok.itos = list(itos)
+        tok.stoi = {w: i for i, w in enumerate(tok.itos)}
+        return tok
+
     @property
     def vocab_size(self):
         return len(self.itos)

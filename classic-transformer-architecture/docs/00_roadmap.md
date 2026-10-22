@@ -44,12 +44,12 @@ multi-head attention, positional encoding, residuals, LayerNorm.
 |------|-----------------------|--------------------------------------|--------|
 | 1    | `data.py`, `tokenizer.py` | `01_data_and_tokenization.md`    | ✅     |
 | 2    | `embeddings.py`       | `02_embeddings_and_positions.md`     | ✅     |
-| 3    | `attention.py`        | `03_self_attention_qkv.md`           | ⏳     |
-| 4    | `attention.py`        | `04_multi_head_attention.md`         | ⏳     |
-| 5    | `encoder.py`          | `05_encoder_block.md`                | ⏳     |
-| 6    | `model.py`            | `06_full_model.md`                   | ⏳     |
-| 7    | `train.py`            | `07_training.md`                     | ⏳     |
-| 8    | `predict.py`          | `08_inference_and_attention_viz.md`  | ⏳     |
+| 3    | `attention.py`        | `03_self_attention_qkv.md`           | ✅     |
+| 4    | `attention.py`        | `04_multi_head_attention.md`         | ✅     |
+| 5    | `encoder.py`          | `05_encoder_block.md`                | ✅     |
+| 6    | `model.py`            | `06_full_model.md`                   | ✅     |
+| 7    | `train.py`            | `07_training.md`                     | ✅     |
+| 8    | `predict.py`          | `08_inference_and_attention_viz.md`  | ✅     |
 
 Setup: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple`
 Run any step with `.venv/bin/python <file>.py`.
