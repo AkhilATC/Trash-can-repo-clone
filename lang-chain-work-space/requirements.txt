@@ -1,3 +1,9 @@
 langchain
 langchain-ollama
 pydantic
+langchain-community
+pypdf
+langchain-huggingface
+sentence-transformers
+langchain-postgres
+faiss-cpu

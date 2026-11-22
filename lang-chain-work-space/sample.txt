@@ -1,0 +1,7 @@
+Converting Your Documents into Text
+As mentioned at the beginning of the chapter, the first step in preprocessing your
+document is to convert it to text. In order to achieve this, you would need to build
+logic to parse and extract the document with minimal loss of quality. Fortunately,
+LangChain provides document loaders that handle the parsing logic and enable you
+to “load” data from various sources into a Document class that consists of text and
+associated metadata.

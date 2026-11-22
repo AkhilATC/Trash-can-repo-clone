@@ -3,4 +3,7 @@ dsa
 .ipynb_checkpoints
 /nut-and-bolt/nab
 .venv
-
+.env
+.venv/
+.venv312/
+__pycache__/
